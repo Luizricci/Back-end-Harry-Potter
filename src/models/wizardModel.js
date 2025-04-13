@@ -15,9 +15,9 @@ const getWizardById = async (id) => {
     return result.rows[0];
 };
 
-const createWizard = async (name, house_id) => {
+const createWizard = async (name, house_id, image) => {
     const result = await pool.query(
-        "INSERT INTO wizards (name, house_id) VALUES ($1, $2) RETURNING *", [name, house_id]);
+        "INSERT INTO wizards (name, house_id, image) VALUES ($1, $2, $3) RETURNING *", [name, house_id, image]);
     return result.rows[0];
 };
 const  deleteWizard = async (id) => {
@@ -31,7 +31,7 @@ const  deleteWizard = async (id) => {
 const updateWizard = async (id, data) => {
     const { name, house_id } = data;
     const result = await pool.query(
-        "UPDATE wizards SET name = $1, house_id = $2 WHERE id = $3 RETURNING *",
+        "UPDATE wizards SET name = $1, house_id = $2, image = $3 WHERE id = $4 RETURNING *",
         [name, house_id, id]
     );
     return result.rows[0];

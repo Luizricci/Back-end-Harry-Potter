@@ -11,6 +11,7 @@ CREATE TABLE houses (
 CREATE TABLE wizards (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
+    image VARCHAR(255),
     house_id INTEGER REFERENCES houses(id) ON DELETE SET NULL
 );
 
@@ -20,11 +21,9 @@ INSERT INTO houses (name, founder) VALUES
     ('Corvinal', 'Rowena Ravenclaw'),
     ('Lufa-Lufa', 'Helga Hufflepuff');
 
-INSERT INTO wizards (name, house_id) VALUES 
-    ('Harry Potter', 1),
-    ('Draco Malfoy', 2),
-    ('Luna Lovegood', 3),
-    ('Cedrico Diggory', 4);
+INSERT INTO wizards (name, house_id, image) VALUES 
+    ('Harry Potter', 1, 'https://wallpapers.com/images/high/harry-potter-pictures-dxxvdv7ihxcr6vzr.jpg'),
+    ('Draco Malfoy', 2, 'https://wallpapers.com/images/high/young-draco-malfoy-fovp1t3td6uw9gec.jpg'),
+    ('Luna Lovegood', 3, 'https://wallpapers.com/images/high/harry-potter-landscape-gku92nrjrhuj6v1b.jpg'),
+    ('Hermione Granger', 1, 'https://wallpapers.com/images/high/hermione-granger-in-focus-shot-ofd9h99pfvjrsple.jpg');
 
-INSERT INTO wizards (name, house_id) VALUES 
-    ('Harry Potter', 5);
