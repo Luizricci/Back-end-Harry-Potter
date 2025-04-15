@@ -23,7 +23,8 @@ const getWizard = async (req, res) => {
 
 const createWizard = async (req, res) => {
     try {
-        const { name, house_id, image } = req.body;
+        const { name, house_id } = req.body;
+        const image = req.file ? req.file.filename : null;
         const newWizard = await wizardModel.createWizard(name, house_id, image);
         res.status(201).json(newWizard);
     } catch (error) {
