@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const wizardController = require("../controllers/wizardController");
-const upload = require("../config/upload.js"); 
+const upload = require("../config/upload.js");
+const apikey = require("../config/apikey.js");
 /**
  * @swagger
  * tags:
@@ -9,7 +10,7 @@ const upload = require("../config/upload.js");
  *  description: Gerenciamento de Bruxos
  */
 
-
+router.use(apikey);
 /**
  * @swagger
  * /api/wizards:
